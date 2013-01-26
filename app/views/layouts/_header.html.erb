@@ -7,13 +7,17 @@
       <li>
         <%= link_to "Home", root_path %>
       </li>
+      <li class="divider-vertical"></li>
+      <li>
+        <%= link_to "Restaurants", restaurants_path %>
+      </li>
     </ul>
 
 
     <ul class="nav pull-right">
       <% if user_signed_in? %>
         <li>
-        <p class="navbar-text">You are currently signed in as <%= link_to current_user.email, edit_user_registration_path %> Not you?</p>
+        <p class="navbar-text">You are currently signed in as <%= link_to current_user.name, edit_user_registration_path %> Not you?</p>
         </li>
         <li>
           <%= link_to "Sign Out", destroy_user_session_path, method: "delete" %>

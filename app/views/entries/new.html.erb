@@ -1,5 +1,10 @@
-<h1 class="offset1">New entry</h1>
+<h1 class="offset1">New Entry</h1>
 <div class="hero-unit span4">
+Name:
+<%= current_user.name %>
+<br />
+<br />
+
 <%= render 'form' %>
 
 <%= link_to 'Back', entries_path %>

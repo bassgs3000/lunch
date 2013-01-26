@@ -1,7 +1,8 @@
 <h1 class="offset1">Editing entry</h1>
 <div class="hero-unit span4">
-<%= render 'form' %>
-
-<%= link_to 'Show', @entry %> |
-<%= link_to 'Back', entries_path %>
+	<%= render 'form' %>
+	<div class="btn-group">
+		<%= link_to 'Back', entries_path, class: "btn btn-primary" %>
+		<%= link_to 'Destroy', entry_path, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+	</div>
 </div>

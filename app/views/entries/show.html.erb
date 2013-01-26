@@ -1,10 +1,8 @@
-<p id="notice"><%= notice %></p>
-<h1 class="offset1">Profile for <%= @entry.name %></h1>
+<% unless notice.blank? %>
+	<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<h1 class="offset1">Entry for <%= current_user.name %></h1>
 <div class="hero-unit">
-<p>
-  <b>Name:</b>
-  <%= @entry.name %>
-</p>
 
 <p>
   <b>Likes:</b>

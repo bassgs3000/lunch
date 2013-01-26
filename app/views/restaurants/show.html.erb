@@ -1,0 +1,18 @@
+<% unless notice.blank? %>
+	<p class="alert alert-success"><%= notice %></p>
+<% end %>
+<h1 class="offset1"><%= @restaurant.name %></h1>
+<div class="hero-unit">
+<p>
+  <b>Submitted by:</b>
+  <%= @user.name %>
+</p>
+<p>
+  <b>Restaurant Name:</b>
+  <%= @restaurant.name %>
+</p>
+
+
+<%= link_to 'Edit', edit_restaurant_path(@restaurant) %> |
+<%= link_to 'Back', restaurants_path %>
+</div>

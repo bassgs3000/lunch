@@ -1,5 +1,7 @@
+<% unless notice.blank? %>
+<div class='alert'><%= notice %> </div>
+<% end %>
 <h1 class="offset1">Sign in</h1>
-
 <div class="hero-unit span4">
 <%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
   <div><%= f.label :email %><br />

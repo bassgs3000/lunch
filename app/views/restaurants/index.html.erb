@@ -1,0 +1,20 @@
+<h1 class="offset1">Listing Restaurants</h1>
+<div class= "hero-unit">
+<div class="row-fluid">
+  <div class= "span1"><i class="icon-user"></i> Name</div>
+</div>
+
+<% @restaurants.each do |restaurant| %>
+  <div class="row-fluid">
+    <div class= "span2"><%= restaurant.name %></div>
+
+    <% unless !user_signed_in? %>
+    	<%= link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-primary" %>
+    <% end %>
+  </div>
+<% end %>
+
+<br />
+<% unless !user_signed_in? %>
+	<%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success" %>
+<% end %>

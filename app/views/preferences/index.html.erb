@@ -1,4 +1,4 @@
-<h1 class="offset1">Listing Entries</h1>
+<h1 class="offset1">Listing Preferences</h1>
 <div class= "hero-unit">
 <div class="row-fluid">
   <div class= "span1"><i class="icon-user"></i> Name</div>
@@ -6,22 +6,22 @@
   <div class= "span3"><i class="icon-thumbs-down"></i> Dislikes</div>
 </div>
 
-<% @entries.each do |entry| %>
+<% @preferences.each do |pref| %>
   <div class="row-fluid">
 
     <div class= "span1">Placeholder</div>
-    <div class= "span3"><%= entry.likes %></div>
-    <div class= "span3"><%= entry.dislikes %></div>
+    <div class= "span3"><%= pref.likes %></div>
+    <div class= "span3"><%= pref.dislikes %></div>
 
-    <% unless !user_signed_in? %>
-      <%= link_to 'Edit', edit_entry_path(entry), class: "btn btn-primary" %>
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_preference_path(pref), class: "btn btn-primary" %>
     <% end %>
   </div>
 <% end %>
 
 <br />
-<% unless !user_signed_in? %>
-  <%= link_to 'New Entry', new_entry_path, class: "btn btn-success" %>
+<% if user_signed_in? %>
+  <%= link_to 'New Preference', new_preference_path, class: "btn btn-success" %>
   <br />
   <br />
 <% end %>
@@ -36,7 +36,7 @@
 
 <br />
 
-<b>Total Entries:</b>
+<b>Total Preferences:</b>
 <%= @count %>
 
 <br />
@@ -45,5 +45,5 @@
   <br />
 </div>
 <br />
-<%= link_to raw("<i class=\"icon-refresh\"></i> Result"), entries_path, remote: true, class: "btn" %>
+<%= link_to raw("<i class=\"icon-refresh\"></i> Result"), preferences_path, remote: true, class: "btn" %>
 </div>

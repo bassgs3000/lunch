@@ -1,20 +1,20 @@
 <% unless notice.blank? %>
 	<p class="alert alert-success"><%= notice %></p>
 <% end %>
-<h1 class="offset1">Entry for <%= current_user.name %></h1>
+<h1 class="offset1">Preference for <%= current_user.name %></h1>
 <div class="hero-unit">
 
 <p>
   <b>Likes:</b>
-  <%= @entry.likes %>
+  <%= @preference.likes %>
 </p>
 
 <p>
   <b>Dislikes:</b>
-  <%= @entry.dislikes %>
+  <%= @preference.dislikes %>
 </p>
 
 
-<%= link_to 'Edit', edit_entry_path(@entry) %> |
-<%= link_to 'Back', entries_path %>
+<%= link_to 'Edit', edit_preference_path(@preference) %> |
+<%= link_to 'Back', preferences_path %>
 </div>

@@ -36,7 +36,7 @@ class PreferencesController < ApplicationController
         format.html # new.html.erb
         format.json { render json: @preference }
       else
-        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create an entry' }
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to create an preference' }
         format.json { render :layout=>false }
       end
     end
@@ -52,7 +52,7 @@ class PreferencesController < ApplicationController
         format.html # new.html.erb
         format.json { render json: @preference }
       else
-        format.html { redirect_to new_user_session_path, notice: 'Please sign in to edit an entry' }
+        format.html { redirect_to new_user_session_path, notice: 'Please sign in to edit an preference' }
         format.json { render :layout=>false }
       end
     end

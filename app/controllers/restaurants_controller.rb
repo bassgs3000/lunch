@@ -13,7 +13,7 @@ class RestaurantsController < ApplicationController
 
   def show
     @restaurant = Restaurant.find(params[:id])
-    @user= User.find(@restaurant.user_id)
+    # @user= User.find(@restaurant.user_id)  # BROKEN
 
     respond_to do |format|
       format.html # show.html.erb

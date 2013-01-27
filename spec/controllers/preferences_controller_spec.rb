@@ -23,17 +23,17 @@ describe PreferencesController do
   # GET /preferences/1
   describe "GET show" do
     it "assigns @preference" do
-      get :show, id: @pref.id
+      get :show, id: @pref
       assigns(:preference).should == @pref
     end
 
     it "renders the show template" do
-      get :show, id: @pref.id
+      get :show, id: @pref
       response.should render_template(:show)
     end
   end
- 
-  
+
+
   # GET /preferences/new
   describe "GET new" do
     context "when a user is signed in" do
@@ -63,7 +63,7 @@ describe PreferencesController do
     end
   end
 
-  
+
   # GET /preferences/1/edit
   describe "GET edit" do
     context "when a user is signed in" do
@@ -73,20 +73,20 @@ describe PreferencesController do
       end
 
       it "assigns @preference" do
-        get :edit, id: @pref.id
+        get :edit, id: @pref
         assigns(:preference).should be_a(Preference)
       end
 
       it "renders the edit template" do
-        get :edit, id: @pref.id
+        get :edit, id: @pref
         response.should render_template(:edit)
       end
     end
-    
+
     context "when a user is not signed in" do
       describe "GET edit" do
         it "redirects to new_user_session_path" do
-          get :edit, id: @pref.id
+          get :edit, id: @pref
           response.should redirect_to(new_user_session_path)
         end
       end

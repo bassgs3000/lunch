@@ -64,6 +64,46 @@ class RestaurantsController < ApplicationController
     end
   end
 
+  def like
+    restaurant = Restaurant.find(params[:id])
+    preference = Preference.new do |p|
+      p.restaurant = restaurant
+      p.user = current_user
+    end
+
+    preference.like = true
+
+    respond_to do |format|
+      if preference.save
+        format.html { redirect_to restaurants_path, notice: 'Preference was successfully created.' }
+        format.json { render json: restaurants_path, status: :created, location: preference }
+      else
+        format.html { redirect_to restaurants_path, notice: 'Something went wrong'}
+        format.json { render json: preference.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def dislike
+    restaurant = Restaurant.find(params[:id])
+    preference = Preference.new do |p|
+      p.restaurant = restaurant
+      p.user = current_user
+    end
+
+    preference.like = false
+
+    respond_to do |format|
+      if preference.save
+        format.html { redirect_to restaurants_path, notice: 'Preference was successfully created.' }
+        format.json { render json: restaurants_path, status: :created, location: preference }
+      else
+        format.html { redirect_to restaurants_path, notice: 'Something went wrong'}
+        format.json { render json: preference.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   def update
     @restaurant = Restaurant.find(params[:id])
 

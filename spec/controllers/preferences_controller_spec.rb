@@ -139,9 +139,9 @@ describe PreferencesController do
       }.to change(Preference, :count).by(-1)
     end
 
-    it "redirects to preference_url" do
+    it "redirects to restaurants_path" do
       delete :destroy, id: @tmp_pref
-      response.should redirect_to(preference_url)
+      response.should redirect_to(restaurants_path)
     end
   end
 end

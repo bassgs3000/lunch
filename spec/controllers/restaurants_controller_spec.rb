@@ -106,6 +106,36 @@ describe RestaurantsController do
   end
 
 
+  # POST /restaurants/1/like
+  describe "POST like" do
+    it "creates a new, associated, 'like' Preference" do
+      expect {
+        post :like, id: @rst
+      }.to change(Preference, :count).by(1)
+    end
+
+    it "redirects_to restaurants_path" do
+      post :like, id: @rst
+      response.should redirect_to(restaurants_path)
+    end
+  end
+
+
+  # POST /restaurants/1/like
+  describe "POST dislike" do
+    it "creates a new, associated, 'dislike' Preference" do
+      expect {
+        post :dislike, id: @rst
+      }.to change(Preference, :count).by(1)
+    end
+
+    it "redirects_to restaurants_path" do
+      post :dislike, id: @rst
+      response.should redirect_to(restaurants_path)
+    end
+  end
+
+
   # PUT /restaurants/1
   describe "PUT update" do
     it "assigns @restaurant" do

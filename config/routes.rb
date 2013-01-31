@@ -2,9 +2,14 @@ Lunch::Application.routes.draw do
   devise_for :users
 
   resources :preferences
-  resources :restaurants
+  resources :restaurants do
+    member do
+      post "like"
+      post "dislike"
+    end
+  end
 
-  root to: 'preferences#index'
+  root to: 'restaurants#index'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

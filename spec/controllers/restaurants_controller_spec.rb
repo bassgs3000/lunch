@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe RestaurantsController do
-  before(:all) do
+  before(:each) do
     @rst = Restaurant.create
     @user = User.create
   end

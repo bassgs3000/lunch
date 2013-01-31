@@ -1,14 +1,11 @@
 %h1.offset1 Listing Restaurants
 .hero-unit
-  .row-fluid
-    .span1
-      %i.icon-user
-      Name
   - @restaurants.each do |restaurant|
     .row-fluid
       .span2= restaurant.name
       - unless !user_signed_in?
-        = link_to 'Edit', edit_restaurant_path(restaurant), class: "btn btn-primary"
+        = render partial: "preferences_btn_group",
+            locals: { restaurant: restaurant }
   %br/
   - unless !user_signed_in?
     = link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success"

@@ -1,7 +1,7 @@
 require "spec_helper"
 
 describe PreferencesController do
-  before(:all) do
+  before(:each) do
     @pref = Preference.create(restaurant_id: 1)
     @user = User.create
   end

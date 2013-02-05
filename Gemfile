@@ -8,7 +8,7 @@ gem 'simple_form'
 gem 'haml-rails'
 gem 'capistrano'
 gem 'capistrano-ext'
-gem 'rvm-capistrano'
+gem 'rvm-capistrano', '1.3.0.rc1'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'

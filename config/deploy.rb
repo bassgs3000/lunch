@@ -10,9 +10,9 @@ before 'deploy:setup', 'rvm:install_ruby'
 before 'deploy:setup', 'rvm:install_pkgs'
 
 namespace :rvm do
-    task :trust_rvmrc do
-          run "rvm rvmrc trust #{release_path}"
-            end
+  task :trust_rvmrc do
+    run "rvm rvmrc trust #{release_path}"
+  end
 end
 
 after "deploy", "rvm:trust_rvmrc"
@@ -42,3 +42,19 @@ set :normalize_asset_timestamps, false
 server "www.lunchfoo.com", :app, :web, :db, :primary => true
 set :deploy_to, "/var/www/lunchfoo"
 set :rails_env, :production
+
+namespace :db do
+  task :db_config, :except => { :no_release => true }, :role => :app do
+    run "cp -f ~/database.yml #{release_path}/config/database.yml"
+  end
+end
+
+before "deploy:migrate", "db:db_config"
+
+namespace :deploy do
+  task :precompile, :role => :app do
+    run "cd #{release_path}/ && rake assets:precompile"
+  end
+end
+
+after "deploy", "deploy:precompile"

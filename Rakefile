@@ -7,5 +7,5 @@ require File.expand_path('../config/application', __FILE__)
 Lunch::Application.load_tasks
 
 
-require 'rspec/core/rake_task'
-task :default => :spec
+#require 'rspec/core/rake_task'
+#task :default => :spec

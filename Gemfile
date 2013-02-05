@@ -23,3 +23,7 @@ group :development, :test do
   gem 'thin'
   gem 'rspec-rails'
 end
+
+group :production do
+  gem 'mysql'
+end

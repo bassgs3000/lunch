@@ -49,12 +49,11 @@ namespace :db do
   end
 end
 
-before "deploy:migrate", "db:db_config"
-
 namespace :deploy do
   task :precompile, :role => :app do
     run "cd #{release_path}/ && rake assets:precompile"
   end
 end
 
+before "deploy", "db:db_config"
 after "deploy", "deploy:precompile"

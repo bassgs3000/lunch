@@ -26,5 +26,4 @@ end
 
 group :production do
   gem 'mysql'
-  gem 'activerecord-sqlite3-adapter'
 end

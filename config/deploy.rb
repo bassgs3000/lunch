@@ -55,5 +55,5 @@ namespace :deploy do
   end
 end
 
-before "deploy", "db:db_config"
+after "deploy", "db:db_config"
 after "deploy", "deploy:precompile"

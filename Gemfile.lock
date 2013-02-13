@@ -31,6 +31,10 @@ GEM
     arel (3.0.2)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
+    better_errors (0.5.0)
+      coderay (>= 1.0.0)
+      erubis (>= 2.6.6)
+    binding_of_caller (0.6.8)
     bootstrap-sass (2.2.2.0)
       sass (~> 3.2)
     builder (3.0.4)
@@ -42,6 +46,7 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
+    coderay (1.0.8)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
       railties (~> 3.2.0)
@@ -79,6 +84,9 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    meta_request (0.2.1)
+      rack-contrib
+      rails
     mime-types (1.19)
     multi_json (1.5.0)
     mysql2 (0.3.11)
@@ -95,6 +103,8 @@ GEM
     rack (1.4.4)
     rack-cache (1.2)
       rack (>= 0.4)
+    rack-contrib (1.1.0)
+      rack (>= 0.9.1)
     rack-ssl (1.3.2)
       rack
     rack-test (0.6.2)
@@ -166,6 +176,8 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  better_errors
+  binding_of_caller
   bootstrap-sass
   capistrano
   capistrano-ext
@@ -173,6 +185,7 @@ DEPENDENCIES
   devise
   haml-rails
   jquery-rails
+  meta_request
   mysql2
   rails (>= 3.2.11)
   rspec-rails

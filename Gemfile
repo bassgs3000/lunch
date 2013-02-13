@@ -18,6 +18,12 @@ end
 
 gem 'jquery-rails'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller'
+  gem 'meta_request'
+end
+
 group :development, :test do
   gem 'sqlite3'
   gem 'thin'

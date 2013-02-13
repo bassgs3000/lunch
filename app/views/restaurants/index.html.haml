@@ -1,5 +1,10 @@
+- if flash[:notice].present?
+  .alert.alert-success= flash[:notice]
+- if flash[:alert].present?
+  .alert.alert-error= flash[:alert]
 %h1.offset1 Listing Restaurants
 .hero-unit
+  %b.restaurantlist Restaurants
   - @restaurants.each do |restaurant|
     .row-fluid
       .span2= restaurant.name
@@ -17,3 +22,4 @@
     = link_to 'New Restaurant', new_restaurant_path, class: "btn btn-success"
 
   = @evaluate
+  = render partial: "attendance"

@@ -1,0 +1,11 @@
+%br/
+%br/
+%b.userlist Users
+= form_tag evaluate_restaurants_path do
+  - @users.each do |user|
+    %div
+      %span.attendance_checkbox
+        = check_box_tag "user_ids[]", user.id
+      %span.attendance_name
+        = user.name
+  = submit_tag "Lunchinate!", class: "btn btn-primary"

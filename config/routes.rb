@@ -3,6 +3,9 @@ Lunch::Application.routes.draw do
 
   resources :preferences
   resources :restaurants do
+    collection do
+      post "evaluate"
+    end
     member do
       post "like"
       post "dislike"

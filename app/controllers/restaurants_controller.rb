@@ -3,7 +3,8 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
     @preferences = Preference
-    @evaluate = Preference.evaluate
+    #@evaluate = Preference.evaluate
+    @users = User.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -105,6 +106,19 @@ class RestaurantsController < ApplicationController
       end
     end
   end
+
+  def evaluate
+    respond_to do |format|
+      if (evaluate = Preference.evaluate(params[:user_ids])).present?
+        format.html { redirect_to restaurants_path, notice: evaluate}
+        format.json { render json: restaurants_path}
+      else
+        format.html { redirect_to restaurants_path, alert: "Result is Blank" }
+        format.json { render json: restaurants_path}
+      end
+    end
+  end
+
 
   def update
     @restaurant = Restaurant.find(params[:id])

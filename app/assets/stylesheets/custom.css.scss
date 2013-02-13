@@ -51,12 +51,6 @@ nav,li{
   width:30px;
   text-align: center;
 }
-/*
-.divider-vertical{
-  height: 61px;
-  other CSS keeps overwriting this, damn bootstrap
-}*/
-
 .likecount{
   color:darkBlue;
   display: inline;
@@ -64,4 +58,12 @@ nav,li{
 .dislikecount{
   color:maroon;
   display: inline;
+}
+.attendance_checkbox{
+}
+.userlist{
+  text-decoration: underline;
+}
+.restaurantlist{
+  text-decoration: underline;
 }

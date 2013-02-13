@@ -7,12 +7,37 @@ class Preference < ActiveRecord::Base
   scope :likes, where(like: true)
   scope :dislikes, where(like: false)
 
-  #def self.likes
-  	#self.find_all_by_like(true).map { |pref| pref.like }
-  #	where(:like => true)
-  #end
+  
+  def self.evaluate(input = [1, 3, 5])
+    
+    restlist = Restaurant.all.map { |ent| ent.id }
+    oldrestlist = Array.new(restlist) #for debugging, not useful
+    likelist = []
+    dislikelist = []
+    
+    input.map do |userid|
+      id = userid.to_i
+      Preference.find_all_by_user_id(id).map do |entry|
+        if entry.like
+          likelist << entry.restaurant_id
+        else
+          dislikelist << entry.restaurant_id
+        end
+      end
+    end
 
-  def self.evaluate
-    # stuff
+    likelist.each do |like|
+      restlist << like.to_i
+    end
+    dislikelist.each do |dislike|
+      restlist.delete_at(restlist.index(dislike.to_i) || restlist.length)
+    end
+
+    Restaurant.find_by_id(restlist.shuffle.sample.to_i).name
+
+    #p "Result: #{Restaurant.find_by_id(restlist.shuffle.sample.to_i).name} 
+    #    Unmodified Rest List #{oldrestlist} Adjusted Rest List #{restlist}, Sample users #{input}
+    #    Liked restaurant_id #{likelist} Disliked restaurant_id #{dislikelist}"
+
   end
 end

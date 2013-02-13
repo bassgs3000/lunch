@@ -3,6 +3,7 @@ class RestaurantsController < ApplicationController
   def index
     @restaurants = Restaurant.all
     @preferences = Preference
+    @evaluate = Preference.evaluate
 
     respond_to do |format|
       format.html # index.html.erb

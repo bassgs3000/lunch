@@ -22,5 +22,6 @@ describe Restaurant do
       @restaurant.preferences.last.user = User.new
       @restaurant.should have(:no).errors_on(:users)
     end
+    
   end
 end

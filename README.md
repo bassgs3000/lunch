@@ -4,7 +4,7 @@ Just an app to get people together and choose on lunches. A fun hobby and learni
 
 Credits
 -------
-Awesome programmer that came up with a lot of the complicated code (and rspec)
+Awesome programmer that brought in a lot of the complicated code (and rspec)
 > Errin Larsen
 
 Awesome Logo and domain name
